@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B52956AA2460D577003EF347 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B52956A92460D577003EF347 /* .gitignore */; };
 		B55D9C4E24619EDF00E36102 /* PointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55D9C4D24619EDF00E36102 /* PointView.swift */; };
-		B55D9C522461B0BB00E36102 /* LineCoefficients.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55D9C512461B0BB00E36102 /* LineCoefficients.swift */; };
 		B56289092460A8A700A7A6A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56289082460A8A700A7A6A7 /* AppDelegate.swift */; };
 		B562890B2460A8A700A7A6A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B562890A2460A8A700A7A6A7 /* SceneDelegate.swift */; };
 		B562890D2460A8A700A7A6A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B562890C2460A8A700A7A6A7 /* ViewController.swift */; };
@@ -24,7 +23,6 @@
 		B52956A82460D52F003EF347 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B52956A92460D577003EF347 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B55D9C4D24619EDF00E36102 /* PointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointView.swift; sourceTree = "<group>"; };
-		B55D9C512461B0BB00E36102 /* LineCoefficients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCoefficients.swift; sourceTree = "<group>"; };
 		B56289052460A8A700A7A6A7 /* GraphAndTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphAndTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56289082460A8A700A7A6A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B562890A2460A8A700A7A6A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		B562891C2460A98000A7A6A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B55D9C512461B0BB00E36102 /* LineCoefficients.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 				B55D9C4E24619EDF00E36102 /* PointView.swift in Sources */,
 				B562890D2460A8A700A7A6A7 /* ViewController.swift in Sources */,
 				B56289092460A8A700A7A6A7 /* AppDelegate.swift in Sources */,
-				B55D9C522461B0BB00E36102 /* LineCoefficients.swift in Sources */,
 				B562890B2460A8A700A7A6A7 /* SceneDelegate.swift in Sources */,
 				B5AEAD6B2461D30A000319B9 /* UIBezierPath+Ext.swift in Sources */,
 				B56289202460AE1A00A7A6A7 /* GraphView.swift in Sources */,

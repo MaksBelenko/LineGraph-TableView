@@ -18,23 +18,7 @@ import UIKit
     // MARK: - Fields
     var pointPositionX: CGFloat = 0
     var graphCGPoints: [CGPoint] = [CGPoint(x: 50, y: 50)]
-    var lineCoef = [LineCoefficients]()
-    
-    
-    
-    /**
-     Gets coefficient(k) and offset(b) as line has equation y = kx + b
-     - Parameter startPoint: First point on the line
-     - Parameter endPoint: Another point on the line
-     */
-    private func getLineCoeffients(startPoint: CGPoint, endPoint: CGPoint) -> LineCoefficients {
-        let coefficient = CGFloat((endPoint.y - startPoint.y) / (endPoint.x - startPoint.x))
-        let offset = endPoint.y - coefficient * endPoint.x
-        return LineCoefficients(coefficient: coefficient, offset: offset)
-    }
-    
-    
-    
+  
     
     override func draw(_ rect: CGRect) {
         
@@ -49,11 +33,20 @@ import UIKit
             let beginPoint = CGPoint(x: graphCGPoints[i].x, y: graphCGPoints[i].y)
             let finishPoint = CGPoint(x: graphCGPoints[i+1].x, y: graphCGPoints[i+1].y)
 
-            let m = getLineCoeffients(startPoint: beginPoint, endPoint: finishPoint)
-
-            let decimalX = pointPositionX - CGFloat(Int(pointPositionX))
-            x = beginPoint.x + (finishPoint.x - beginPoint.x) * decimalX
-            y = m.coefficient * x + m.offset
+            
+            let midP = midPoint(p1: beginPoint, p2: finishPoint)
+            let remainder = pointPositionX.truncatingRemainder(dividingBy: 1)
+            let controlP = (remainder < 0.5) ? controlPoint(p1: midP, p2: beginPoint) : controlPoint(p1: midP, p2: finishPoint)
+            
+            let percentage = (remainder < 0.5) ? remainder*2 : (remainder - 0.5)*2
+            
+            if remainder < 0.5 {
+                x = quadBezier(t: percentage, start: beginPoint.x, c1: controlP.x, end: midP.x)
+                y = quadBezier(t: percentage, start: beginPoint.y, c1: controlP.y, end: midP.y)
+            } else {
+                x = quadBezier(t: percentage, start: midP.x, c1: controlP.x, end: finishPoint.x)
+                y = quadBezier(t: percentage, start: midP.y, c1: controlP.y, end: finishPoint.y)
+            }
         } else {
             x = graphCGPoints[i].x
             y = graphCGPoints[i].y
@@ -66,14 +59,66 @@ import UIKit
         let circle = UIBezierPath(ovalIn: CGRect(origin: point, size: CGSize(width: circleDiameter, height: circleDiameter)))
         circle.fill()
     }
+
+    
+    
+    
+    // MARK: - Bezier Helpers
+    
+    /**
+    Calculates Cubic Bezier path
+    
+        let x = QuadBezier(t: 0.3, start: A.x, c1: C1.x, end: B.x);
+        let y = QuadBezier(t: 0.3, start: A.y, c1: C1.y, end: B.y);
+        return CGPoint(x: x, y: y);
+       For example, lets say you have two points A and B,
+       and a control point C1. You want to calculate the
+       value 30% of the way between the two of them. Call
+       the function twice, once for the x value, once for
+       the y. Combine the two to produce a destination point.
+    */
+    func quadBezier(t: CGFloat, start: CGFloat, c1: CGFloat, end: CGFloat) -> CGFloat {
+        let t_ : CGFloat = (1.0 - t);
+        let tt_: CGFloat = t_ * t_;
+        let tt : CGFloat = t * t;
+        
+        return start * tt_
+               + 2.0 *  c1 * t_ * t
+               + end * tt;
+    }
+    
+    
+    /**
+     Calculates Middle Point between two points
+     - Parameter p1: First point
+     - Parameter p2: Second point
+     */
+    private func midPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {
+        return CGPoint(x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2)
+    }
+    
+    
+    /**
+     Calculates control point for point to be used in Quad Bezier
+     - Parameter p1: First point
+     - Parameter p2: Second point
+     */
+    private func controlPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {
+        var controlPoint = midPoint(p1: p1, p2: p2)
+        let dY = abs(p2.y - controlPoint.y)
+        
+        controlPoint.y += (p1.y < p2.y) ? dY : -dY
+        return controlPoint
+    }
+
+
 }
 
 
 
 // MARK: - PointDataDelegate
 extension PointView: PointDataDelegate {
-    func setPointViewData(lineCoef: [LineCoefficients], graphCGPoints: [CGPoint]) {
-        self.lineCoef = lineCoef
+    func setPointViewData(graphCGPoints: [CGPoint]) {
         self.graphCGPoints = graphCGPoints
     }
 }

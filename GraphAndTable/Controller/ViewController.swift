@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     var pointPositionX: CGFloat = 0
     var graphCGPoints = [CGPoint]()
-    var lineCoef = [LineCoefficients]()
     
     
     // MARK: - Lifecycle
@@ -26,14 +25,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         testSlider.maximumValue = Float(graphView.graphPointsY.count-1)
-    
+        
         graphView.pointDataDelegate = pointView
     }
 
 
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         testLabel.text = String(sender.value)
-        
+
         pointView.pointPositionX = CGFloat(sender.value)
         pointView.setNeedsDisplay()
     }

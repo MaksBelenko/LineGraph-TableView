@@ -10,28 +10,26 @@ import UIKit
 
 
 protocol PointDataDelegate: AnyObject {
-    func setPointViewData(lineCoef: [LineCoefficients], graphCGPoints: [CGPoint])
+    func setPointViewData(graphCGPoints: [CGPoint])
 }
 
 
 @IBDesignable class GraphView: UIView {
     
     // MARK: - @IBInspectable
-    @IBInspectable var startColor: UIColor = .red
-    @IBInspectable var endColor: UIColor = .green
+    @IBInspectable var startColour: UIColor = .red
+    @IBInspectable var endColour: UIColor = .green
+    @IBInspectable var lineColour: UIColor = .white
     
-//    @IBInspectable var curveX1: CGFloat = 10
-//    @IBInspectable var curveY1: CGFloat = 10
-//    @IBInspectable var curveX2: CGFloat = 10
-//    @IBInspectable var curveY2: CGFloat = 10
+    @IBInspectable var marginLeft: CGFloat = 20.0
+    @IBInspectable var marginRight: CGFloat = 50
+    
     
     
     weak var pointDataDelegate: PointDataDelegate?
     
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
-        static let marginLeft: CGFloat = 20.0
-        static let marginRight: CGFloat = 50
         static let topBorder: CGFloat = 60
         static let bottomBorder: CGFloat = 20
         static let colorAlpha: CGFloat = 0.3
@@ -39,10 +37,8 @@ protocol PointDataDelegate: AnyObject {
         static let numberOfLines = 4
     }
     
-    var graphPointsY: [CGFloat] = [1, 6, 8, 4, 5, 7, 2, 4, 6]
+    var graphPointsY: [CGFloat] = [0, 6, 8, 4, 5, 7, 2, 4, 6, 8]
     
-    var lineCoef = [LineCoefficients]()
-    var graphCGPoints = [CGPoint]()
     
     
     
@@ -55,7 +51,7 @@ protocol PointDataDelegate: AnyObject {
         
         // ----------- Draw Gradient ---------
         let context = UIGraphicsGetCurrentContext()!
-        let colors = [startColor.cgColor, endColor.cgColor]
+        let colors = [startColour.cgColor, endColour.cgColor]
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colorLocations: [CGFloat] = [0.0, 1.0]
@@ -73,11 +69,11 @@ protocol PointDataDelegate: AnyObject {
         
         
         // ----------------- Set X ----------------
-        let graphWidth = width - (Constants.marginLeft + Constants.marginRight) - 4
+        let graphWidth = width - (marginLeft + marginRight) - 4
         let columnXPoint = { (column: Int) -> CGFloat in
             //Calculate the gap between points
             let spacing = graphWidth / CGFloat(self.graphPointsY.count - 1)
-            return CGFloat(column) * spacing + Constants.marginLeft + 2
+            return CGFloat(column) * spacing + self.marginLeft + 2
         }
         
         // ------------------ Set Y ----------------
@@ -91,25 +87,23 @@ protocol PointDataDelegate: AnyObject {
         }
         
         
+    
+        
+        // ------------- Generate points --------------
+        var graphCGPoints = [CGPoint]()
+        for i in 0..<graphPointsY.count {
+            graphCGPoints.append(CGPoint(x: columnXPoint(i), y: columnYPoint(graphPointsY[i])))
+        }
+        pointDataDelegate?.setPointViewData(graphCGPoints: graphCGPoints)
+        
+        
+        
         
         // ----------- Draw graph -----------
-        UIColor.white.setFill()
-        UIColor.white.setStroke()
+        lineColour.setFill()
+        lineColour.setStroke()
         
-        let graphPath = UIBezierPath()
-        
-        let currentPoint = CGPoint(x: columnXPoint(0), y: columnYPoint(graphPointsY[0]))
-        graphPath.move(to: currentPoint)
-        graphCGPoints.append(currentPoint)
-        
-        for i in 1..<graphPointsY.count {
-            let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPointsY[i]))
-            graphPath.addLine(to: nextPoint)
-            graphCGPoints.append(nextPoint)
-        }
-        
-//        let graphPathCurve = UIBezierPath(curveFromPoints: graphCGPoints)!
-        
+        let graphPath = UIBezierPath(curveFromPoints: graphCGPoints)!
         
         
         
@@ -142,8 +136,6 @@ protocol PointDataDelegate: AnyObject {
         graphPath.lineWidth = 2.0
         graphPath.stroke()
         
-//        graphPathCurve.lineWidth = 2
-//        graphPathCurve.stroke()
         
         
         // ------- Draw horizontal graph dotted lines on the top of everything
@@ -151,8 +143,8 @@ protocol PointDataDelegate: AnyObject {
         
         for i in 0...Constants.numberOfLines-1 {
             let size = CGFloat(i)/CGFloat(Constants.numberOfLines-1)
-            linePath.move(to: CGPoint(x: Constants.marginLeft, y: graphHeight*size + topBorder))
-            linePath.addLine(to: CGPoint(x: width - Constants.marginRight, y: graphHeight*size + topBorder))
+            linePath.move(to: CGPoint(x: marginLeft, y: graphHeight*size + topBorder))
+            linePath.addLine(to: CGPoint(x: width - marginRight, y: graphHeight*size + topBorder))
         }
         
         let  dashes: [ CGFloat ] = [ 0.0, 12.0 ]
@@ -163,27 +155,6 @@ protocol PointDataDelegate: AnyObject {
         linePath.stroke()
         
         
-        pointDataDelegate?.setPointViewData(lineCoef: lineCoef, graphCGPoints: graphCGPoints)
-
-        
-        
-        
-        
-//        var point1 = CGPoint(x: curveX1, y: curveY1)
-//        point1.x -= Constants.circleDiameter / 2
-//        point1.y -= Constants.circleDiameter / 2
-//
-//        let circle = UIBezierPath(ovalIn: CGRect(origin: point1, size: CGSize(width: Constants.circleDiameter, height: Constants.circleDiameter)))
-//        circle.fill()
-//
-//
-//
-//        var point2 = CGPoint(x: curveX2, y: curveY2)
-//        point2.x -= Constants.circleDiameter / 2
-//        point2.y -= Constants.circleDiameter / 2
-//
-//        let circle3 = UIBezierPath(ovalIn: CGRect(origin: point2, size: CGSize(width: Constants.circleDiameter, height: Constants.circleDiameter)))
-//        circle3.fill()
     }
 }
 
