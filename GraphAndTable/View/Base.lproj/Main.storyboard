@@ -17,9 +17,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2q2-9g-Rfv" customClass="GraphView" customModule="GraphAndTable" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="220"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kP-0B-gLl" userLabel="Point View" customClass="PointView" customModule="GraphAndTable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="4kP-0B-gLl" firstAttribute="top" secondItem="2q2-9g-Rfv" secondAttribute="top" id="324-Av-T59"/>
+                                    <constraint firstAttribute="bottom" secondItem="4kP-0B-gLl" secondAttribute="bottom" id="3dG-ux-KjR"/>
                                     <constraint firstAttribute="height" constant="220" id="CIb-fH-dTO"/>
+                                    <constraint firstItem="4kP-0B-gLl" firstAttribute="leading" secondItem="2q2-9g-Rfv" secondAttribute="leading" id="KLv-On-NHk"/>
+                                    <constraint firstAttribute="trailing" secondItem="4kP-0B-gLl" secondAttribute="trailing" id="fqV-xs-0Pj"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -27,6 +37,18 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                         <color key="value" red="0.60220568742460678" green="0.23323081208321594" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="curveX1">
+                                        <real key="value" value="135"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="curveY1">
+                                        <real key="value" value="172"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="curveX2">
+                                        <real key="value" value="264"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="curveY2">
+                                        <real key="value" value="61"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -55,6 +77,7 @@
                     </view>
                     <connections>
                         <outlet property="graphView" destination="2q2-9g-Rfv" id="6Cq-Ly-uSy"/>
+                        <outlet property="pointView" destination="4kP-0B-gLl" id="2h2-fC-mIi"/>
                         <outlet property="testLabel" destination="kYj-Gp-KqJ" id="3VH-Zr-izJ"/>
                         <outlet property="testSlider" destination="XgP-ol-Xxg" id="MJh-at-b6s"/>
                     </connections>
