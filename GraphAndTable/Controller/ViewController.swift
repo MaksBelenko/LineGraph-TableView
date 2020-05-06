@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         graphView.pointDataDelegate = pointView
-        graphView.graphPointsY = prices
+        graphView.graphPointsY = prices.reversed()
         
         pointView.pointPositionX = CGFloat(prices.count-1)
         maxValue.text = "£\(prices.max()!)"
