@@ -58,6 +58,33 @@ import UIKit
 
         let circle = UIBezierPath(ovalIn: CGRect(origin: point, size: CGSize(width: circleDiameter, height: circleDiameter)))
         circle.fill()
+        
+        
+        
+        // ------- Draw rectangle for point
+//        let rectHeight: CGFloat = 30
+//        let rectWidth: CGFloat = 60
+//        let priceRect = CGRect(x: x - rectWidth/2,
+//                               y: y - rectHeight - 20,
+//                               width: rectWidth,
+//                               height: rectHeight)
+//
+//        let path = UIBezierPath(roundedRect: priceRect,
+//                                byRoundingCorners: .allCorners,
+//                                cornerRadii: CGSize(width: 8.0, height: 8.0))
+//        path.addClip()
+//        
+//        path.fill()
+//        
+//        let attributes = [
+//            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12.0),
+//            NSAttributedString.Key.foregroundColor: UIColor.blue
+//        ]
+//
+//        let myText = "HELLO"
+//        let attributedString = NSAttributedString(string: myText, attributes: attributes)
+//
+//        attributedString.draw(in: priceRect)
     }
 
     

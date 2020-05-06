@@ -19,7 +19,7 @@ protocol PointDataDelegate: AnyObject {
     // MARK: - @IBInspectable
     @IBInspectable var startColour: UIColor = .red
     @IBInspectable var endColour: UIColor = .green
-    @IBInspectable var lineColour: UIColor = .white
+    @IBInspectable var lineColour: UIColor = .purple
     
     @IBInspectable var marginLeft: CGFloat = 20.0
     @IBInspectable var marginRight: CGFloat = 50
@@ -31,7 +31,7 @@ protocol PointDataDelegate: AnyObject {
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 8.0, height: 8.0)
         static let topBorder: CGFloat = 60
-        static let bottomBorder: CGFloat = 20
+        static let bottomBorder: CGFloat = 5
         static let colorAlpha: CGFloat = 0.3
         static let circleDiameter: CGFloat = 10.0
         static let numberOfLines = 4
@@ -59,12 +59,12 @@ protocol PointDataDelegate: AnyObject {
                                   colors: colors as CFArray,
                                   locations: colorLocations)!
         
-        let startPoint = CGPoint.zero
-        let endPoint = CGPoint(x: 0, y: bounds.height)
-        context.drawLinearGradient(gradient,
-                                   start: startPoint,
-                                   end: endPoint,
-                                   options: [])
+//        let startPoint = CGPoint.zero
+//        let endPoint = CGPoint(x: 0, y: bounds.height)
+//        context.drawLinearGradient(gradient,
+//                                   start: startPoint,
+//                                   end: endPoint,
+//                                   options: [])
         
         
         
@@ -151,7 +151,7 @@ protocol PointDataDelegate: AnyObject {
         linePath.setLineDash(dashes, count: dashes.count, phase: 0.0)
         linePath.lineWidth = 1
         linePath.lineCapStyle = .round
-        UIColor.white.set()
+        UIColor.purple.set()
         linePath.stroke()
         
         

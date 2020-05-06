@@ -24,13 +24,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCt-cp-Bfm">
                                                 <rect key="frame" x="383" y="199" width="15" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£999.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF1-61-FsW">
                                                 <rect key="frame" x="351" y="44" width="47" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -41,6 +41,11 @@
                                             <constraint firstAttribute="trailing" secondItem="XF1-61-FsW" secondAttribute="trailing" constant="16" id="QtY-tv-4ai"/>
                                             <constraint firstAttribute="trailing" secondItem="pCt-cp-Bfm" secondAttribute="trailing" constant="16" id="kky-IV-Uxg"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColour">
+                                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -71,55 +76,70 @@
                                         <real key="value" value="61"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="marginLeft">
-                                        <real key="value" value="15"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="marginRight">
-                                        <real key="value" value="15"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColour">
-                                        <color key="value" red="0.56385053336889834" green="0.83165390211521006" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.93812177536032237" green="0.61614394823529695" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColour">
-                                        <color key="value" red="0.51339208517495827" green="0.26668808784264164" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColour">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" red="0.79607843137254897" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XgP-ol-Xxg">
-                                <rect key="frame" x="18" y="306" width="348" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="nas-U7-8Q3"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0nY-cQ-cfK"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYj-Gp-KqJ">
-                                <rect key="frame" x="107" y="372" width="201" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-bk-0SO">
+                                <rect key="frame" x="0.0" y="264" width="414" height="598"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="Cell" textLabel="Oud-Pe-mYe" detailTextLabel="igP-Qa-Ypj" rowHeight="60" style="IBUITableViewCellStyleValue1" id="R0E-Bv-RnU">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R0E-Bv-RnU" id="A70-Z0-rLN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oud-Pe-mYe">
+                                                    <rect key="frame" x="20" y="20" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="igP-Qa-Ypj">
+                                                    <rect key="frame" x="350.5" y="20" width="43.5" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="XgP-ol-Xxg" firstAttribute="top" secondItem="2q2-9g-Rfv" secondAttribute="bottom" constant="42" id="60C-Wq-1C0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yGY-bk-0SO" secondAttribute="bottom" id="Cyu-Bw-Q93"/>
                             <constraint firstItem="2q2-9g-Rfv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HeZ-Fz-blJ"/>
+                            <constraint firstItem="yGY-bk-0SO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I63-CS-hsH"/>
                             <constraint firstItem="2q2-9g-Rfv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="J6o-2g-Rn5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XgP-ol-Xxg" secondAttribute="trailing" constant="50" id="o5w-qK-QXt"/>
+                            <constraint firstItem="yGY-bk-0SO" firstAttribute="top" secondItem="2q2-9g-Rfv" secondAttribute="bottom" id="Ryz-Mp-gZX"/>
+                            <constraint firstItem="yGY-bk-0SO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wnu-3h-T3M"/>
                             <constraint firstItem="2q2-9g-Rfv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qnu-ac-Xcm"/>
-                            <constraint firstItem="XgP-ol-Xxg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yPv-rF-TbH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="graphView" destination="2q2-9g-Rfv" id="6Cq-Ly-uSy"/>
+                        <outlet property="maxValue" destination="XF1-61-FsW" id="GAI-td-ECo"/>
                         <outlet property="pointView" destination="4kP-0B-gLl" id="2h2-fC-mIi"/>
-                        <outlet property="testLabel" destination="kYj-Gp-KqJ" id="3VH-Zr-izJ"/>
-                        <outlet property="testSlider" destination="XgP-ol-Xxg" id="MJh-at-b6s"/>
+                        <outlet property="tableView" destination="yGY-bk-0SO" id="m74-OQ-Eau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
