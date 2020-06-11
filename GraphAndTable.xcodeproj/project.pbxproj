@@ -17,6 +17,7 @@
 		B56289122460A8A900A7A6A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56289112460A8A900A7A6A7 /* Assets.xcassets */; };
 		B56289152460A8A900A7A6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56289132460A8A900A7A6A7 /* LaunchScreen.storyboard */; };
 		B56289202460AE1A00A7A6A7 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B562891F2460AE1A00A7A6A7 /* GraphView.swift */; };
+		B596A1982492B4DF00E209CD /* BezierHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596A1972492B4DF00E209CD /* BezierHelper.swift */; };
 		B5AEAD6B2461D30A000319B9 /* UIBezierPath+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEAD6A2461D30A000319B9 /* UIBezierPath+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		B56289142460A8A900A7A6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56289162460A8A900A7A6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B562891F2460AE1A00A7A6A7 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		B596A1972492B4DF00E209CD /* BezierHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierHelper.swift; sourceTree = "<group>"; };
 		B5AEAD6A2461D30A000319B9 /* UIBezierPath+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 				B562891C2460A98000A7A6A7 /* Model */,
 				B562891D2460A98A00A7A6A7 /* View */,
 				B562891E2460A99B00A7A6A7 /* Controller */,
+				B596A1962492B4B300E209CD /* Helpers */,
 				B5AEAD6C2461D5BE000319B9 /* Extensions */,
 			);
 			path = GraphAndTable;
@@ -106,6 +109,14 @@
 				B562890C2460A8A700A7A6A7 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B596A1962492B4B300E209CD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B596A1972492B4DF00E209CD /* BezierHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B5AEAD6C2461D5BE000319B9 /* Extensions */ = {
@@ -194,6 +205,7 @@
 				B56289092460A8A700A7A6A7 /* AppDelegate.swift in Sources */,
 				B562890B2460A8A700A7A6A7 /* SceneDelegate.swift in Sources */,
 				B5AEAD6B2461D30A000319B9 /* UIBezierPath+Ext.swift in Sources */,
+				B596A1982492B4DF00E209CD /* BezierHelper.swift in Sources */,
 				B56289202460AE1A00A7A6A7 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

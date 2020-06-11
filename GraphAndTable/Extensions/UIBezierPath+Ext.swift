@@ -20,24 +20,15 @@ extension UIBezierPath {
         var startPoint = points[0]
         move(to: startPoint)
         
+        let bezierHelper = BezierHelper()
+        
         for endPoint in points {
-            let mid = midPoint(p1: startPoint, p2: endPoint)
-            addQuadCurve(to: mid, controlPoint: controlPoint(p1: mid, p2: startPoint))
-            addQuadCurve(to: endPoint, controlPoint: controlPoint(p1: mid, p2: endPoint))
+            let mid = bezierHelper.midPoint(p1: startPoint, p2: endPoint)
+            addQuadCurve(to: mid, controlPoint: bezierHelper.controlPoint(p1: mid, p2: startPoint))
+            addQuadCurve(to: endPoint, controlPoint: bezierHelper.controlPoint(p1: mid, p2: endPoint))
             
             startPoint = endPoint
         }
     }
-    
-    private func midPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {
-        return CGPoint(x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2)
-    }
-    
-    private func controlPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {
-        var controlPoint = midPoint(p1: p1, p2: p2)
-        let dY = abs(p2.y - controlPoint.y)
-        
-        controlPoint.y += (p1.y < p2.y) ? dY : -dY
-        return controlPoint
-    }
+
 }

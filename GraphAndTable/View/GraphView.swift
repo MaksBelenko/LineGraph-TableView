@@ -25,7 +25,6 @@ protocol PointDataDelegate: AnyObject {
     @IBInspectable var marginRight: CGFloat = 50
     
     
-    
     weak var pointDataDelegate: PointDataDelegate?
     
     private struct Constants {
@@ -37,7 +36,7 @@ protocol PointDataDelegate: AnyObject {
         static let numberOfLines = 4
     }
     
-    var graphPointsY: [CGFloat] = [0, 6, 8, 4, 5, 7, 2, 4, 6, 8]
+    var graphPointsY: [CGFloat] = [0, 6, 8, 4, 5, 7, 2, 4, 6, 8] // fill to see in storyboard
     
     
     

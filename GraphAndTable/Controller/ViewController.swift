@@ -15,12 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var pointView: PointView!
     @IBOutlet weak var tableView: UITableView!
     
-    var pointPositionX: CGFloat = 0
-    var graphCGPoints = [CGPoint]()
-    let rowHeight: CGFloat = 70
-    
     let prices: [CGFloat] = [6, 15, 26, 13, 5, 23, 16, 17, 18, 11, 9, 10, 24, 17, 1, 15, 13, 14, 5, 8, 9, 10, 15, 28, 14, 13]
-    
+    let rowHeight: CGFloat = 70
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
