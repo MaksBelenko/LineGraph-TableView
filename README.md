@@ -1,4 +1,4 @@
-<img src="Graph_Table.gif" align="right" height=600px/>
+<img src="Graph_Table.gif" align="right" height=500px/>
 
 #  Line Graph & Table
 
